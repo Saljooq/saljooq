@@ -1,36 +1,192 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Startup</title>
 
-      <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+    <head>
+        <title>
+            Hello!
+        </title>
+        <script>
+            function greet()
+            {
+                let name = document.querySelector('#que').value;
+                if (name === '') name = 'nothing';
+                alert('Are you sure you want to search for ' + name + '?');
+                document.querySelector('#newName').innerHTML += ', ' + name + '!';
+            }
+            let counter = 0;
+            function increment()
+            {
+                counter++;
+                document.querySelector('#result').innerHTML = counter;
+            }
+            // document.querySelector('#red').onclick = function(){
+            //     document.querySelector('body').style.background-color = red;
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+            // }
+            function blink()
+            {
+                let body = document.querySelector('body');
+                if (body.style.visibility === 'hidden')
+                {
+                    body.style.visibility = 'visible';
+                }
+                else
+                {
+                    body.style.visibility = 'hidden';
+                }
 
-    <!-- Bootstrap CSS from a CDN. This way you don't have to include the bootstrap file yourself -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
-    <!-- Your own stylesheet -->
-    <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
-  <body>
-    <div class="container d-flex">
-      <div class="row">
-        <header class="text-center col-12">
-        <h1 class = "text-uppercase"><strong>The biggest startup event of the year</strong></h1>
-        </header>
-        <div class="buffer col-12">
+            }
+            // window.setInterval(blink, 500);
+
+        </script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="d-flex flex-row">
+            <div class="p-2">
+                <div class="vertical-menu">
+                  <a href="index2.html">Introduction Page</a>
+                  <a href="blinker.html">Blinking Page</a>
+                  <a href="index.html" class="active">Incremental Logic</a>
+                  <a href="#">Text / Background manipulator</a>
+                  <!--<a href="#">Link 4</a>-->
+                </div>
+            </div>
+            <div class="p-2">
+                <div id="scrollbody">
+                <h1>Hello, world!</h1>
+
+                <h2>Subsection 1</h2>
+
+                <p class="green title">This is some text</p>
+
+                <h2>Subsection 2</h2>
+
+                <p class="green">This is some more text</p>
+                <table>
+                    <tr class="rowheader">
+                        <td>cell 1</td>
+                        <td>cell 2</td>
+                        <td>cell 3</td>
+                    </tr>
+                    <tr>
+                        <td>cell 1</td>
+                        <td>cell 2</td>
+                        <td>cell 3</td>
+                    </tr>
+                    <tr>
+                        <td>cell 1</td>
+                        <td>cell 2</td>
+                        <td>cell 3</td>
+                    </tr>
+
+                </table>
+                <br>
+                <div class="alert alert-primary" role="alert" style ="width:100px ">
+                  A simple primary alert—check it out!
+                </div>
+                <form onsubmit="greet();" action="http://www.google.com/search" method="get">
+                    <input name="q" type="text" id="que">
+                    <input type="submit" value="Search the web">
+                </form>
+                <form onsubmit="increment(); return false;">
+                    <input type="submit" value="Increment">
+                </form>
+                <div id="newName">Hello</div>
+                <div id="result">0</div>
+                <div id="colors">
+                <button value="red" id="red">R</button>
+                <button value="green" id="green">G</button>
+                <button value="blue" id="blue">B</button>
+                <button value="white" id="white">W</button>
+                </div>
+                <br>
+                <select>
+                    <option value="none" selected disabled hidden>Select an Option</option>
+                    <option value="large">Large Text</option>
+                    <option value="initial">Medium Text</option>
+                    <option value="small">Small Text</option>
+                </select>
+                <br>
+                <div id="p">
+                <button id="geo">Get Location</button>
+                </div>
+                <button id="blinker">BLINK</button>
+                <button id="stopBlink">STOP BLINK</button>
+            </div>
         </div>
-        <section class="text-center col-12">
-        <hr>
-        <a href="https://us7.list-manage.com/contact-form?u=43d4eb27decbf42a327f4cb08&form_id=c5fad23afe51b797c2547c4df8794165">
-        <button class = "btn btn-primary btn-xl">Find out more</button>
-        </a>
-        </section>
-      </div>
-    </div>
-  </body>
+    </body>
+    <script>
+        document.querySelector('#red').onclick = function()
+        {
+            document.querySelector('body').style.backgroundColor = 'red';
+        };
+        document.querySelector('#blue').onclick = function()
+        {
+            document.querySelector('body').style.backgroundColor = 'blue';
+        };
+        document.querySelector('#green').onclick = function()
+        {
+            document.querySelector('body').style.backgroundColor = 'green';
+        };
+        document.querySelector('#white').onclick = function()
+        {
+            document.querySelector('body').style.backgroundColor = 'white';
+        };
+
+        document.querySelector('select').onchange = function(){
+            const firstList = document.querySelectorAll("p");//.style.fontSize = this.value;
+            let something = this.value;
+            firstList.forEach(function(item)
+            {
+                item.style.fontSize = something;
+                // document.write(item.textContent + ' ' + something);
+            });
+        };
+        let limiter = 0;
+
+        document.querySelector('#geo').onclick = function()
+        {
+            // document.querySelector('body').style.backgroundColor = 'lightgreen';
+            // var t = document.querySelector('#geo');//.textContent;
+            // t += "---ADDED";
+            // var y = document.createTextNode("ADDED");
+            // t.appendChild(y);
+            if (limiter===0)
+            {
+                limiter++;
+            navigator.geolocation.getCurrentPosition(function(position)
+            {
+                let t = document.getElementById('p');//.textContent;
+                let y = document.createTextNode(position.coords.latitude+", "+position.coords.longitude);
+                t.appendChild(y);
+                // let z = "---ADDED";
+                // t += "---ADDED";
+
+                // var t = document.querySelector('#geo');//.textContent;
+                // var y = document.createTextNode(" : " + position.coords.latitude + ", " + position.coords.longitude);
+                // t.appendChild(y);
+
+            }
+            );
+            }
+
+        };
+
+        let blinkint=0;
+        document.querySelector('#blinker').onclick = function(){
+            blinkint=1;
+        };
+        document.querySelector('#stopBlink').onclick = function(){
+            blinkint=0;
+        };
+
+        window.setInterval(
+            function(){
+                if (blinkint===1) blink();
+            }, 1000);
+
+    </script>
+
 </html>
